@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int nombre;
-        boolean checkWin = false;
         PlateauJeu jeu = new PlateauJeu();
         System.out.println("Bienvenue dans le jeu du Tic-Tac-Toe, placez les pions chacun votre tour pour en aligner 3 et c'est gagné");
         System.out.println(jeu);
@@ -21,7 +20,7 @@ public class Main {
                 saisieValide = jeu.set(nombre, Case.Contenu.X);
             }
             System.out.println(jeu);
-            if (checkWin == true) {
+            if (jeu.checkWin()) {
                 System.out.println("Le joueur 1 gagne");
                 break;
             }
@@ -39,7 +38,7 @@ public class Main {
                 saisieValide = jeu.set(nombre, Case.Contenu.O);
             }
             System.out.println(jeu);
-            if (checkWin == true) {
+            if (jeu.checkWin()) {
                 System.out.println("Le joueur 2 gagne");
                 break;
             }

@@ -51,8 +51,8 @@ public class PlateauJeu {
         return true;
     }
 
-    public Case.Contenu get(int nombre) {
-       return plateau.get(nombre).getContenu();
+    private Case.Contenu get(int nombre) {
+        return plateau.get(nombre).getContenu();
     }
 
     //verification match null
@@ -71,9 +71,21 @@ public class PlateauJeu {
 
     // dynamique de jeu, check Win
     public boolean checkWin() {
-        if()
+        for (int i = 0; i < 3; i++) {
+            if (get(i * 3) != Case.Contenu.vide && get(i * 3) == get(i * 3 + 1) && get(i * 3) == get(i * 3 + 2)) {
+                return true;
+            }
+            if (get(i) != Case.Contenu.vide && get(i) == get(i + 3) && get(i) == get(i + 6)) {
+                return true;
+            }
+        }
+        if (get(0) != Case.Contenu.vide && get(0) == get(4) && get(0) == get(8)) {
+            return true;
+        }
+        if (get(2) != Case.Contenu.vide && get(2) == get(4) && get(2) == get(6)) {
+            return true;
+        }
 
-//       }
         return false;
     }
 }
